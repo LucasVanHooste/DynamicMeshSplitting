@@ -1,0 +1,2 @@
+The models in this demo project are free models from turbosquid.com
+The tileable textures in this project are free textures from textures.com
