@@ -11,6 +11,13 @@ namespace JL.Splitting
         public readonly Vector3 normal;
         public readonly Quaternion rotation;
 
+        public PointPlane(Vector3 point, Vector3 normal)
+        {
+            this.point = point;
+            this.rotation = Quaternion.FromToRotation(Vector3.up, normal);
+            this.normal = normal;
+        }
+
         public PointPlane(Vector3 point, Quaternion rotation)
         {
             this.point = point;
