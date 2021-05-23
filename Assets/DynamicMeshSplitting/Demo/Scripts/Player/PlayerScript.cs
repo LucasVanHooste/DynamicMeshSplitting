@@ -82,7 +82,7 @@ namespace JL.Demo
         private void TrySplitObject()
         {
             RaycastHit hit;
-            if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit, 100f))
+            if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, 100f))
             {
                 SplittableBase splittable = hit.transform.GetComponentInParentRecursive<SplittableBase>();
                 if (splittable != null)
@@ -113,7 +113,7 @@ namespace JL.Demo
             if (InputController.InteractButtonDown)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit, 100f))
+                if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out hit, 100f))
                 {
                     if (hit.transform.TryGetComponent(out Rigidbody rb))
                     {

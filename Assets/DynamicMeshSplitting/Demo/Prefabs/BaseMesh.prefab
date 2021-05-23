@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 2645048962721996663}
   - component: {fileID: 5350023219772125709}
   - component: {fileID: 7048044127042078301}
+  - component: {fileID: 7048044128667623971}
   m_Layer: 0
   m_Name: BaseMesh
   m_TagString: Untagged
@@ -581,6 +582,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7048044128667623971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364102351779638628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33589787423e23047bb1069a335bd1cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CapMaterial: {fileID: 2100000, guid: eb71a0a6e167b4e46becda7ff6442462, type: 2}
+  CapUVMin: {x: 0, y: 0}
+  CapUVMax: {x: 1, y: 1}
+  SplitForce: 0
+  DestroyOriginalMeshWhenSplit: 0
+  targetSkinnedMeshRenderer: {fileID: 8418956215077016277}
+  RagdollBones:
+  - {fileID: 581824836083916136}
+  - {fileID: 3944303917560707578}
+  - {fileID: 1653641192521068114}
+  - {fileID: 7898002415982755889}
+  - {fileID: 5356442740199202526}
+  - {fileID: 8532894510166636719}
+  - {fileID: 6375777637199876289}
 --- !u!1 &1401903267588596748
 GameObject:
   m_ObjectHideFlags: 0
