@@ -19,8 +19,11 @@ namespace JL.Splitting
 
         protected Transform rootBone;
         protected Transform[] originalBones;
+#if ENABLE_MONO
         protected Vector4[] bonesMatrixRows;
-
+#else
+        protected Matrix4x4[] bonesLocalToWorldMatrices;
+#endif
         /// <summary>
         /// Property to easily access which bones were cut after a split.
         /// </summary>
@@ -132,8 +135,9 @@ namespace JL.Splitting
         {
             originalBones = skinnedMeshRenderer.bones;
             rootBone = skinnedMeshRenderer.rootBone;
-            bonesMatrixRows = new Vector4[originalBones.Length * 4];
 
+#if ENABLE_MONO
+            bonesMatrixRows = new Vector4[originalBones.Length * 4];
             for (int i = 0, counter = 0; i < originalBones.Length; i++)
             {
                 for (int j = 0; j < 4; j++, counter++)
@@ -141,6 +145,13 @@ namespace JL.Splitting
                     bonesMatrixRows[counter] = originalBones[i].localToWorldMatrix.GetRow(j);
                 }
             }
+#else
+            bonesLocalToWorldMatrices = new Matrix4x4[originalBones.Length];
+            for (int i = 0; i < originalBones.Length; i++)
+            {
+                bonesLocalToWorldMatrices[i] = originalBones[i].localToWorldMatrix;
+            }
+#endif
 
             bonesPos = new List<int>(originalBones.Length);
             bonesNeg = new List<int>(originalBones.Length);
@@ -210,7 +221,7 @@ namespace JL.Splitting
 #else
         for (int i = 0; i < boneCount; i++)
         {
-            boneToWorldMatrices[i] = originalBones[i].localToWorldMatrix * originalBindPoses[i];
+            boneToWorldMatrices[i] = bonesLocalToWorldMatrices[i] * originalBindPoses[i];
         }
 #endif
             return boneToWorldMatrices;
