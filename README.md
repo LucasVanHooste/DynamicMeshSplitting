@@ -80,6 +80,7 @@ If you want to split a skinned mesh. Create an instance of MeshSplitterSkinned i
 * Custom materials and uv bounds can be applied to the caps created by splitting.
 
 * Island detection is not implemented, meaning that all parts of a mesh that lie on the same side of the plane are part of the same split mesh. Even if they are not attached to eachother anymore.
+* Splitting a hierarchy of meshes can not be done using the MeshSplitter/Splittable workflow, but should be possible using the [MeshSplitter only workflow](#2-meshsplitter-only-workflow) with some manual work.
 
 ## Supported Unity Versions
 Unity versions **2019.4.6 and newer** are supported. The package and demo were created in version **2019.4.6** so any older versions are not officially supported. The splitting scripts will likely still work in older versions, but this has not been tested.
